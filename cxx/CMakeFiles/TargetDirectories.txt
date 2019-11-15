@@ -1,0 +1,5 @@
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/CMakeFiles/rebuild_cache.dir
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/CMakeFiles/edit_cache.dir
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/CMakeFiles/_SlatorKoster.dir
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/CMakeFiles/testSimpson2d.dir
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/CMakeFiles/testSlatorKoster.dir

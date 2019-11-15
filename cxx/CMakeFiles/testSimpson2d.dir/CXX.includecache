@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/testSimpson2d.cpp
+iostream
+-
+ctime
+-
+simpson2d.h
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/simpson2d.h
+
+include/simpson2d.h
+functional
+-
+array
+-
+cmath
+-
+

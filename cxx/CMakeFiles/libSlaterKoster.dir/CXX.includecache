@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/SlatorKoster.cpp
+SlatorKoster.h
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/SlatorKoster.h
+
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/test.cpp
+SlatorKoster.h
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/SlatorKoster.h
+iostream
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/iostream
+random
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/random
+functional
+/Users/Meow/Documents/physics/research/MoS2_graphene/cxx/src/functional
+ctime
+-
+
+include/SlatorKoster.h
+math.h
+-
+simpson2d.h
+include/simpson2d.h
+
+include/simpson2d.h
+functional
+-
+array
+-
+cmath
+-
+

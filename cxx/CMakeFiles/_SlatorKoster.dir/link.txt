@@ -1,0 +1,1 @@
+clang++ -O3 -bundle -Wl,-headerpad_max_install_names  -o _SlatorKoster.so CMakeFiles/_SlatorKoster.dir/SlatorKosterPYTHON_wrap.cxx.o CMakeFiles/_SlatorKoster.dir/src/SlatorKoster.cpp.o -Wl,-rpath,/Users/Meow/anaconda3/envs/idp/lib /Users/Meow/anaconda3/envs/idp/lib/libpython3.6m.dylib 
