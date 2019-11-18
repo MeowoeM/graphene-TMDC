@@ -347,7 +347,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding PythonLibs
-FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/Users/Meow/anaconda3/envs/idp/lib/libpython3.6m.dylib][/Users/Meow/anaconda3/envs/idp/include/python3.6m][v3.6.5(3.6)]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/Users/Meow/anaconda3/envs/idp/lib/libpython3.6m.dylib][/Users/Meow/anaconda3/envs/idp/include/python3.6m][v3.6.8(3.6)]
 //Details about finding SWIG
 FIND_PACKAGE_MESSAGE_DETAILS_SWIG:INTERNAL=[/usr/local/bin/swig][/usr/local/Cellar/swig/3.0.12/share/swig/3.0.12][v3.0.12()]
 //ADVANCED property for variable: PYTHON_INCLUDE_DIR

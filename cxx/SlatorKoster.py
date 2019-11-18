@@ -138,8 +138,17 @@ class SlatorKoster(_object):
     def E_z_xy(self, r, l, m, n):
         return _SlatorKoster.SlatorKoster_E_z_xy(self, r, l, m, n)
 
+    def E_x_x2y2(self, r, l, m, n):
+        return _SlatorKoster.SlatorKoster_E_x_x2y2(self, r, l, m, n)
+
+    def E_y_x2y2(self, r, l, m, n):
+        return _SlatorKoster.SlatorKoster_E_y_x2y2(self, r, l, m, n)
+
     def E_z_x2y2(self, r, l, m, n):
         return _SlatorKoster.SlatorKoster_E_z_x2y2(self, r, l, m, n)
+
+    def E_x_z2(self, r, l, m, n):
+        return _SlatorKoster.SlatorKoster_E_x_z2(self, r, l, m, n)
 
     def E_z_z2(self, r, l, m, n):
         return _SlatorKoster.SlatorKoster_E_z_z2(self, r, l, m, n)
@@ -153,8 +162,35 @@ class SlatorKoster(_object):
     def ft_E_zz(self, kx, ky):
         return _SlatorKoster.SlatorKoster_ft_E_zz(self, kx, ky)
 
+    def ft_E_xx(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_xx(self, kx, ky)
+
+    def ft_E_yy(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_yy(self, kx, ky)
+
+    def ft_E_xy(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_xy(self, kx, ky)
+
     def ft_E_zz2(self, kx, ky, V_pppi0=-2.7, V_ppsigma0=0.48, a0=1.42, d0=3.35, delta0=0.45264, d=0.45255):
         return _SlatorKoster.SlatorKoster_ft_E_zz2(self, kx, ky, V_pppi0, V_ppsigma0, a0, d0, delta0, d)
+
+    def ft_E_x_xz(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_x_xz(self, kx, ky)
+
+    def ft_E_x_yz(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_x_yz(self, kx, ky)
+
+    def ft_E_x_xy(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_x_xy(self, kx, ky)
+
+    def ft_E_y_xz(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_y_xz(self, kx, ky)
+
+    def ft_E_y_yz(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_y_yz(self, kx, ky)
+
+    def ft_E_y_xy(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_y_xy(self, kx, ky)
 
     def ft_E_z_xz(self, kx, ky):
         return _SlatorKoster.SlatorKoster_ft_E_z_xz(self, kx, ky)
@@ -165,8 +201,20 @@ class SlatorKoster(_object):
     def ft_E_z_xy(self, kx, ky):
         return _SlatorKoster.SlatorKoster_ft_E_z_xy(self, kx, ky)
 
+    def ft_E_x_x2y2(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_x_x2y2(self, kx, ky)
+
+    def ft_E_y_x2y2(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_y_x2y2(self, kx, ky)
+
     def ft_E_z_x2y2(self, kx, ky):
         return _SlatorKoster.SlatorKoster_ft_E_z_x2y2(self, kx, ky)
+
+    def ft_E_x_z2(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_x_z2(self, kx, ky)
+
+    def ft_E_y_z2(self, kx, ky):
+        return _SlatorKoster.SlatorKoster_ft_E_y_z2(self, kx, ky)
 
     def ft_E_z_z2(self, kx, ky):
         return _SlatorKoster.SlatorKoster_ft_E_z_z2(self, kx, ky)

@@ -18,17 +18,33 @@ public:
 	double E_zz(double r, double n);
 	double E_z_xz(double r, double l, double n);
 	double E_z_xy(double r, double l, double m, double n);
+	double E_x_x2y2(double r, double l, double m, double n);
+	double E_y_x2y2(double r, double l, double m, double n);
 	double E_z_x2y2(double r, double l, double m, double n);
+	double E_x_z2(double r, double l, double m, double n);
 	double E_z_z2(double r, double l, double m, double n);
 
 	double ft_E_xz(double kx, double ky);
 	double ft_E_yz(double kx, double ky);
 	double ft_E_zz(double kx, double ky);
+	double ft_E_xx(double kx, double ky);
+	double ft_E_yy(double kx, double ky);
+	double ft_E_xy(double kx, double ky);
 	double ft_E_zz2(double kx, double ky, double V_pppi0 = -2.7, double V_ppsigma0 = 0.48, double a0 = 1.42, double d0 = 3.35, double delta0 = 0.45264, double d = 0.45255);
+	double ft_E_x_xz(double kx, double ky);
+	double ft_E_x_yz(double kx, double ky);
+	double ft_E_x_xy(double kx, double ky);
+	double ft_E_y_xz(double kx, double ky);
+	double ft_E_y_yz(double kx, double ky);
+	double ft_E_y_xy(double kx, double ky);
 	double ft_E_z_xz(double kx, double ky);
 	double ft_E_z_yz(double kx, double ky);
 	double ft_E_z_xy(double kx, double ky);
+	double ft_E_x_x2y2(double kx, double ky);
+	double ft_E_y_x2y2(double kx, double ky);
 	double ft_E_z_x2y2(double kx, double ky);
+	double ft_E_x_z2(double kx, double ky);
+	double ft_E_y_z2(double kx, double ky);
 	double ft_E_z_z2(double kx, double ky);
 
 	void setIntegrateRegion(double xMin, double xMax, double yMin, double yMax);

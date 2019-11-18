@@ -91,10 +91,28 @@ double SlatorKoster::E_z_xy(double r, double l, double m, double n)
 		   2.0 * l * m * n * this->V_pdpi(r);
 }
 
+double SlatorKoster::E_x_x2y2(double r, double l, double m, double n)
+{
+	return 0.5 * sqrt(3.0) * l * (l * l - m * m) * this->V_pdsigma(r) +
+		   l * (1 - l * l + m * m) * this->V_pdpi(r);
+}
+
+double SlatorKoster::E_y_x2y2(double r, double l, double m, double n)
+{
+	return 0.5 * sqrt(3.0) * m * (l * l - m * m) * this->V_pdsigma(r) -
+		   m * (1 + l * l - m * m) * this->V_pdpi(r);
+}
+
 double SlatorKoster::E_z_x2y2(double r, double l, double m, double n)
 {
 	return 0.5 * sqrt(3.0) * n * (l * l - m * m) * this->V_pdsigma(r) -
 		   n * (l * l - m * m) * this->V_pdpi(r);
+}
+
+double SlatorKoster::E_x_z2(double r, double l, double m, double n)
+{
+	return l * (n * n - 0.5 * (l * l + m * m)) * this->V_pdsigma(r) -
+		   sqrt(3.0) * l * n * n * this->V_pdpi(r);
 }
 
 double SlatorKoster::E_z_z2(double r, double l, double m, double n)
@@ -151,6 +169,54 @@ double SlatorKoster::ft_E_zz(double kx, double ky)
 	);
 }
 
+double SlatorKoster::ft_E_xx(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->d * this->d);
+			return this->E_zz(r, x / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_yy(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->d * this->d);
+			return this->E_zz(r, y / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_xy(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->d * this->d);
+			return this->E_xz(r, x / r, y / r) * sin(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
 double SlatorKoster::ft_E_zz2(double kx, double ky, double V_pppi0, double V_ppsigma0, double a0, double d0, double delta0, double d)
 {
 	return simpson2d<double, double>([this, kx, ky](double x, double y)
@@ -167,6 +233,102 @@ double SlatorKoster::ft_E_zz2(double kx, double ky, double V_pppi0, double V_pps
 	this->yMax, 
 	this->m, 
 	this->n
+	);
+}
+
+double SlatorKoster::ft_E_x_xz(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_z_xz(r, this->dm / r, x / r) * sin(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_x_yz(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_z_xy(r, x / r, y / r, this->dm / r) * sin(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_x_xy(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_z_xz(r, y / r, x / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_y_xz(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_z_xy(r, x / r, y / r, this->dm / r) * sin(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_y_yz(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_z_xz(r, this->dm / r, y / r) * sin(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_y_xy(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_z_xz(r, x / r, y / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
 	);
 }
 
@@ -218,12 +380,76 @@ double SlatorKoster::ft_E_z_xy(double kx, double ky)
 	);
 }
 
+double SlatorKoster::ft_E_x_x2y2(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_x_x2y2(r, x / r, y / r, this->dm / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_y_x2y2(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_y_x2y2(r, x / r, y / r, this->dm / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
 double SlatorKoster::ft_E_z_x2y2(double kx, double ky)
 {
 	return simpson2d<double, double>([this, kx, ky](double x, double y)
 		{
 			double r = sqrt(x * x + y * y + this->dm * this->dm);
 			return this->E_z_x2y2(r, x / r, y / r, this->dm / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_x_z2(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_x_z2(r, x / r, y / r, this->dm / r) * cos(x * kx + y * ky);
+		}, 
+		this->xMin, 
+		this->xMax, 
+		this->yMin, 
+		this->yMax, 
+		this->m, 
+		this->n
+	);
+}
+
+double SlatorKoster::ft_E_y_z2(double kx, double ky)
+{
+	return simpson2d<double, double>([this, kx, ky](double x, double y)
+		{
+			double r = sqrt(x * x + y * y + this->dm * this->dm);
+			return this->E_x_z2(r, y / r, x / r, this->dm / r) * cos(x * kx + y * ky);
 		}, 
 		this->xMin, 
 		this->xMax, 
